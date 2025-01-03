@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  model:
+    image: nnchess
+    build:
+      context: .
+      shm_size: '16gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
