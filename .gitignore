@@ -4,6 +4,7 @@
 ### Custom ###
 *.csv
 *.pgn
+experiments/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
