@@ -47,8 +47,8 @@ class ChessDataset(Dataset):
         self.df["Moves"] = self.df["Moves"].apply(lambda x: literal_eval(x))
         # self.df["Legal Moves"] = self.df["Legal Moves"].apply(lambda x: literal_eval(x))
         if self.token_dict is None:
-            _set = set([move for game in self.df["Moves"] for move in game])
-            self.token_dict = {move : i for i, move in enumerate(_set)}
+            move_set = set([move for game in self.df["Moves"] for move in game])
+            self.token_dict = {move : i for i, move in enumerate(move_set)}
 
     def __getitem__(self, idx):
         
@@ -111,7 +111,8 @@ def prepare_data(batch_size=32, debug=False):
     return {
         "train_dl": train_dl,
         "test_dl": test_dl,
-        "eval_dl": eval_dl
+        "eval_dl": eval_dl,
+        "token_dict": train_dataset.token_dict
     }
     
 if __name__ == "__main__":
