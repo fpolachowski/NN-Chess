@@ -2,10 +2,19 @@ import wandb
 from dataclasses import dataclass
 
 @dataclass
+class ModelConfig():
+    dict_size: int
+    transformer_width: int
+    transformer_layers: int
+    transformer_nheads: int
+    dropout: float
+
+@dataclass
 class TrainingConfig():
     learning_rate: float
     epochs: int
     batch_size: int
+    modelconfig: ModelConfig
     early_stoping_step: int
     loss_accumulation_step: int
     scheduler_steps: list[int]
