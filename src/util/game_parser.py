@@ -37,7 +37,7 @@ for i in tqdm(range(NUM_GAMES), total=NUM_GAMES):
 with open("data/test.csv", "w") as f:
     pd.DataFrame(games[:NUM_GAMES//10]).to_csv(f, index=False, header=["Winner", "Moves"])
     
-with open("datatrain.csv", "w") as f:
+with open("data/train.csv", "w") as f:
     pd.DataFrame(games[NUM_GAMES//10:]).to_csv(f, index=False, header=["Winner", "Moves"])
     
 # print(move_dict)
