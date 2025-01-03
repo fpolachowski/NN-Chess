@@ -2,3 +2,4 @@ pandas
 safetensors
 tqdm
 chess
+wandb
